@@ -3,4 +3,8 @@ class ClassGroup < ApplicationRecord
 
   has_many :seating_charts, dependent: :destroy
   has_many :students, dependent: :destroy
+
+  def slugify
+    self.slug = name.parameterize
+  end
 end
