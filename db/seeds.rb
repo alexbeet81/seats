@@ -21,8 +21,8 @@ seating_chart = SeatingChart.create!(number_of_students: 25, rows: 5, columns: 5
 
 puts "creating new students"
 25.times do |i|
-  new_student = Student.create!(chinese_name: "我名字", english_name: "Student #{i}", number: i, participation_score: rand(10), class_group_id: glass_group.id)
-  puts "created new student #{i}"
+  new_student = Student.create!(chinese_name: "我名字", english_name: "Student #{i + 1}", number: i + 1, participation_score: rand(10), class_group_id: class_group.id)
+  puts "created new student #{i + 1}"
 end
 
 puts "finished!"
