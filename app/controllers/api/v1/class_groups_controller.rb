@@ -2,7 +2,9 @@ module Api
   module V1
     class ClassGroupsController < ApplicationController
       before_action :set_class_group, except: [:index, :create]
-      
+      # skip_before_action :authenticate_user!
+      protect_from_forgery with: :null_session
+
       def index
         class_groups = ClassGroup.all
 
@@ -14,7 +16,9 @@ module Api
       end
 
       def create
-        @class_group.new(class_group_params)
+        @class_group = ClassGroup.new(class_group_params)
+        
+        @class_group.user = current_user
 
         if @class_group.save
           render json: ClassGroupSerializer.new(@class_group).serializable_hash.to_json
@@ -42,10 +46,10 @@ module Api
       private
 
       def set_class_group
-        @class_group = ClassGroup.find(slug: params[:slug])
+        @class_group = ClassGroup.find_by(slug: params[:id])
       end
 
-      def class_group_params
+      def class_group_params        
         params.require(:class_group).permit(:name, :user_id)
       end
 
