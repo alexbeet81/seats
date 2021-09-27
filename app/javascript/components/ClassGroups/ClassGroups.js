@@ -8,23 +8,36 @@ const ClassGroups = () => {
   useEffect(() => {
     // Get all of the class groups from api
     // update class groups in state
-
     axios.get('/api/v1/class_groups.json')
     .then( resp => {
+      console.log(resp.data.data)
       setClassGroups(resp.data.data)
     })
     .catch( resp => console.log(resp))
   }, [classGroups.length])
 
-  const list = classGroups.map( item => {
+  const classCard = classGroups.map( item => {
     return (
-      <li key={item.attributes.name}>{item.attributes.name}</li>
+      <div className="class_card">
+        <div key={item.attributes.name}>Class Name: {item.attributes.name}</div>
+        <h3>students: {item.relationships.students.data.length}</h3>
+      </div>    
     )
   })
 
+  const addNewClass = () => {
+    console.log('works')
+  }
+
   return (
     <div className="background">
-      <ul>{list}</ul>
+      <div className="class_card__container">
+        {classCard}
+        <div className="class_card__new" onClick={addNewClass}>
+          <h3>+ add new class</h3>
+        </div>
+      </div>
+
     </div>
   )
 }
