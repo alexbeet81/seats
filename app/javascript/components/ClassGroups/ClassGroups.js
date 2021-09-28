@@ -1,6 +1,8 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
 import './ClassGroups.css';
+import './NewClassGroup';
+import NewClassGroup from './NewClassGroup';
 
 const ClassGroups = () => {
   const [classGroups, setClassGroups] = useState([])
@@ -31,6 +33,7 @@ const ClassGroups = () => {
 
   return (
     <div className="background">
+      <NewClassGroup></NewClassGroup>
       <div className="class_card__container">
         {classCard}
         <div className="class_card__new" onClick={addNewClass}>

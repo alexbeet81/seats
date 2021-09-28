@@ -1,11 +1,14 @@
 import React from 'react';
 
 import Card from '../UI/Card.js';
+import './NewClassGroup.css';
 
-const newClassGroup = () => {
+const NewClassGroup = () => {
   return (
-    <Card></Card>
+    <Card className="addUserCard">
+      <div>hello</div>
+    </Card>
   )
 };
 
-export default newClassGroup;
+export default NewClassGroup;
