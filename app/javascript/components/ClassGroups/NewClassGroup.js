@@ -5,9 +5,16 @@ import './NewClassGroup.css';
 
 const NewClassGroup = () => {
   return (
-    <Card className="addUserCard">
-      <div>hello</div>
-    </Card>
+    <div className="addClass__backdrop">
+      <Card className="addClassCard">
+        hello
+
+        This is a Card
+
+
+        I need to code more stuff here
+      </Card>
+    </div>
   )
 };
 

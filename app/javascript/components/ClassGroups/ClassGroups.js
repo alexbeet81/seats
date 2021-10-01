@@ -33,14 +33,13 @@ const ClassGroups = () => {
 
   return (
     <div className="background">
-      <NewClassGroup></NewClassGroup>
+      <NewClassGroup />
       <div className="class_card__container">
         {classCard}
         <div className="class_card__new" onClick={addNewClass}>
           <h3>+ add new class</h3>
         </div>
       </div>
-
     </div>
   )
 }
