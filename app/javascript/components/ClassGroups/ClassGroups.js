@@ -13,7 +13,6 @@ const ClassGroups = () => {
     // update class groups in state
     axios.get('/api/v1/class_groups.json')
     .then( resp => {
-      console.log(resp.data.data)
       setClassGroups(resp.data.data)
     })
     .catch( resp => console.log(resp))

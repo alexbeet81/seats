@@ -27,16 +27,23 @@ const NewClassGroup = (props) => {
     setEnteredColumns(event.target.value)
   }
 
+  // what happens when a user doesn't put anything into the inputs.
+
   const addClassHandler = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     axios.post(`http://localhost:3000/api/v1/class_groups`,{
       name: enteredClassName,
     })
-    props.dissmissAddNewClassFrom();
-    // console.log(enteredClassName);
-    // console.log(enteredDeskNumber);
-    // console.log(enteredRows);
-    // console.log(enteredColumns);
+
+    // get the id for the current class created
+
+    // // do axios post request for that class group and create a seating plan
+    // axios.post(`/api/v1/class_groups/${classGroupID}/seating_charts`, {
+    //   number_of_students: enteredDeskNumber,
+    //   rows: enteredRows,
+    //   columns: enteredColumns,
+    //   class_group_id: classGroupID
+    // })
   }
 
   return (
