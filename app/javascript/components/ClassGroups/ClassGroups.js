@@ -38,7 +38,7 @@ const ClassGroups = () => {
 
   return (
     <div className="background">
-      {addClassForm && <NewClassGroup onConfirm={dissmissAddNewClassFrom}/> }
+      {addClassForm && <NewClassGroup onDismiss={dissmissAddNewClassFrom}/> }
       <div className="class_card__container">
         {classCard}
         <div className="class_card__new" onClick={addNewClass}>

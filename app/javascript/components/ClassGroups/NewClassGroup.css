@@ -11,8 +11,8 @@
 .addClassCard {
   position: fixed;
   top: 30vh;
-  left: 10%;
-  width: 80%;
+  left: 32%;
+  width: 35%;
   z-index: 100;
   overflow: hidden;
 }
@@ -25,8 +25,11 @@
 }
 
 .addClass__input label {
+  font-family: 'roboto';
+  font-size: 18px;
   display: block;
-  font-weight: bold;
+  color: #5b5b5b;
+  font-weight: 400;
   margin-bottom: 0.5rem;
 }
 
@@ -34,8 +37,10 @@
   font: inherit;
   display: block;
   width: 100%;
-  border: 1px solid #ccc;
-  padding: 0.15rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #f0f2f5;
+  padding: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
@@ -46,4 +51,35 @@
 
 .rows_columns {
   display: flex;
+  align-items: baseline;
+}
+
+.rows_columns input {
+  width: 6rem;
+  width: 6rem;
+  margin: 0 1rem 0 1rem;
+}
+
+.rows_columns__header {
+  font-family: 'roboto';
+  font-size: 18px;
+  margin-top: 2rem;
+  color: #5b5b5b;
+  font-weight: 400;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-family: 'roboto';
+  font-weight: lighter;
+  color: #a6a6a6;
+}
+
+.addClassForm__btn_cancel {
+  background-color: #de7347;
+}
+
+.addClassFrom__buttons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
 }
