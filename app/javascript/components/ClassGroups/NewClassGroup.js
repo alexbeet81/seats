@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 
 import Card from '../UI/Card.js';
 import Button from '../UI/Button.js';
@@ -26,14 +27,16 @@ const NewClassGroup = (props) => {
     setEnteredColumns(event.target.value)
   }
 
-
-
   const addClassHandler = (event) => {
     event.preventDefault();
-    console.log(enteredClassName);
-    console.log(enteredDeskNumber);
-    console.log(enteredRows);
-    console.log(enteredColumns);
+    axios.post(`http://localhost:3000/api/v1/class_groups`,{
+      name: enteredClassName,
+    })
+    props.dissmissAddNewClassFrom();
+    // console.log(enteredClassName);
+    // console.log(enteredDeskNumber);
+    // console.log(enteredRows);
+    // console.log(enteredColumns);
   }
 
   return (
