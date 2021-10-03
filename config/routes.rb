@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#index'
+  root to: 'pages#home'
 
   namespace :api do
     namespace :v1 do
@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     end
   end
 
-  get '*path', to: 'pages#index', via: :all
+  get '*path', to: 'pages#home', via: :all
 end
