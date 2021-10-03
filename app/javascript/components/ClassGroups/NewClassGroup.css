@@ -43,3 +43,7 @@
   outline: none;
   border-color: #4f005f;
 }
+
+.rows_columns {
+  display: flex;
+}

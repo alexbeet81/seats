@@ -6,6 +6,7 @@ import NewClassGroup from './NewClassGroup';
 
 const ClassGroups = () => {
   const [classGroups, setClassGroups] = useState([])
+  const [addClassForm, setAddClassFrom] = useState(false);
 
   useEffect(() => {
     // Get all of the class groups from api
@@ -28,12 +29,16 @@ const ClassGroups = () => {
   })
 
   const addNewClass = () => {
-    console.log('works')
+    setAddClassFrom(true);
+  }
+
+  const dissmissAddNewClassFrom = () => {
+    setAddClassFrom(false);
   }
 
   return (
     <div className="background">
-      <NewClassGroup />
+      {addClassForm && <NewClassGroup onConfirm={dissmissAddNewClassFrom}/> }
       <div className="class_card__container">
         {classCard}
         <div className="class_card__new" onClick={addNewClass}>
