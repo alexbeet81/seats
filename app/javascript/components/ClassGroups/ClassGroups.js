@@ -15,6 +15,7 @@ const ClassGroups = () => {
     // this API call needs to be for the users classes.
     axios.get('/api/v1/class_groups.json')
     .then( resp => {
+      console.log(resp.data.data)
       setClassGroups(resp.data.data)
     })
     .catch( resp => console.log(resp))

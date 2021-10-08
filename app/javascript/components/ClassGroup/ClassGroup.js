@@ -4,30 +4,35 @@ import React, { useState, useEffect } from 'react';
 const ClassGroup = () => {
   // API call to find the seating plan for this class group.
   const [seatingChart, setSeatingChart] = useState();
-  const [classGroup, setClassGroup] = useState([]);
+  const [classGroup, setClassGroup] = useState({});
   const [students, setStudents] = useState();
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/v1/class_groups/class-one.json`)
+    axios.get(`/api/v1/class_groups/class-one.json`)
     .then(resp => {
-    console.log('I am in useEffect', resp)
-      setClassGroup(resp.data.data)
+      // console.log('I am in useEffect', resp.data.data);
+      setClassGroup(resp.data.data);e
     })
-  }, [classGroup.length])
+    .catch(resp => console.log(resp))
+  }, [])
 
-  console.log('I am console log classGroup',typeof classGroup)
+  console.log(classGroup.attributes)
 
-  const classInformation = classGroup.map( item => {
-    console.log(item)
-    return (
-      <div>
-        hello
-      </div>
-    )
-  })
+  // const classInformation = classGroup.map( item => {
+  //   console.log(item)
+  //   if (!item) {
+  //     return (
+  //       <div>
+  //         hello
+  //       </div>
+  //     )
+  //   }
+  // })
 
   return (
-    <div></div>
+    <div>
+      {/* <h1>{classGroup.attributes.name}</h1> */}
+    </div>
   )
 }
 
