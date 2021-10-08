@@ -4,6 +4,7 @@ module Api
       before_action :set_class_group, except: [:index, :create]
       # skip_before_action :authenticate_user!
       protect_from_forgery with: :null_session
+      skip_before_action :verify_authenticity_token
 
       def index
         class_groups = ClassGroup.all

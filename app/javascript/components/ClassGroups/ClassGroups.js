@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './ClassGroups.css';
 import './NewClassGroup';
@@ -11,6 +12,7 @@ const ClassGroups = () => {
   useEffect(() => {
     // Get all of the class groups from api
     // update class groups in state
+    // this API call needs to be for the users classes.
     axios.get('/api/v1/class_groups.json')
     .then( resp => {
       console.log(resp.data.data)
@@ -20,11 +22,14 @@ const ClassGroups = () => {
   }, [classGroups.length])
 
   const classCard = classGroups.map( item => {
+    console.log(item)
     return (
-      <div className="class_card">
-        <div key={item.attributes.name}>Class Name: {item.attributes.name}</div>
-        <h3>students: {item.relationships.students.data.length}</h3>
-      </div>    
+      <Link className="class_card__link" to={`/class_groups/${item.attributes.slug}`}>
+        <div className="class_card">
+          <div key={item.attributes.name}>Class Name: {item.attributes.name}</div>
+          <h3>students: {item.relationships.students.data.length}</h3>
+        </div>    
+      </Link>
     )
   })
 
@@ -38,7 +43,7 @@ const ClassGroups = () => {
 
   return (
     <div className="background">
-      {addClassForm && <NewClassGroup onConfirm={dissmissAddNewClassFrom}/> }
+      {addClassForm && <NewClassGroup onDismiss={dissmissAddNewClassFrom}/> }
       <div className="class_card__container">
         {classCard}
         <div className="class_card__new" onClick={addNewClass}>
